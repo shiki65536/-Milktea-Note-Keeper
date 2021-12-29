@@ -24,6 +24,7 @@ function App() {
     return (
         <div>
             <Header />
+            <div className="main">
             <CreateNote addNote={addNote} />
            
             {notes.map((note, index) => {
@@ -37,6 +38,7 @@ function App() {
                     />
                 );
             })}
+            </div>
             <Footer />
         </div>
     );

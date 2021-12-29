@@ -9,8 +9,8 @@ function Note(props) {
   }
   return (
     <div className="note">
-      <h2>{props.title}</h2>
-      <p>{props.content}</p>
+      <h2 contentEditable suppressContentEditableWarning>{props.title}</h2>
+      <p contentEditable suppressContentEditableWarning>{props.content}</p>
       <button onClick={clickDelete}><DeleteSweepIcon /></button>
     </div>
   );

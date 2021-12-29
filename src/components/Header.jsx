@@ -6,7 +6,7 @@ function Header(){
         <header>
             <h1>
             <EmojiFoodBeverageIcon /> 
-             MilkTea Note Keeper
+             Milktea Note Keeper
             </h1>
         </header>
     );

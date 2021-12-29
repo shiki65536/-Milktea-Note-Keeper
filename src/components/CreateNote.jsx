@@ -37,7 +37,7 @@ function CreateNote(props) {
 
     return (
         <form 
-        className="create-note"
+        className="create-note col-6 col-s-8"
         action="/"
          method="post">
          { isExpended &&

@@ -15,10 +15,10 @@ function Note(props) {
     <div className="note">
       <h2 
        onClick={clickForm}
-      contentEditable suppressContentEditableWarning>{props.title}</h2>
+      >{props.title}</h2>
       <p 
       onClick={clickForm}
-      contentEditable suppressContentEditableWarning>{props.content}</p>
+      >{props.content}</p>
       <button onClick={clickDelete}><DeleteSweepIcon /></button>
     </div>
   );

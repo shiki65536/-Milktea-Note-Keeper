@@ -5,7 +5,7 @@ function Footer(){
 
     return (
         <footer>
-            <small>Designed by planet16bit © 2021 ~ {year}</small>
+            <small>Designed by shiki65536 © {year}</small>
         </footer>
     );
 }

@@ -1,0 +1,4 @@
+{
+    "mongooseURI": "mongodb+srv://sakuranomiya:0214@cluster0.a7hg0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "myscecret"
+}

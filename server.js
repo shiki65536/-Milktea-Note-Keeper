@@ -1,19 +1,19 @@
 const express = require('express');
-// const connectDB = require('./config/db')
+const connectDB = require('./config/db')
 // const path = require('path')
 
 const app = express()
 
-// connectDB();
+connectDB();
 
-// app.use(express.json({extended: false}));
+app.use(express.json({extended: false}));
 
 app.get('/', (req, res) => res.send('API running'));
 
 // define routes
-// app.use('/users', require('./routes/users'));
-// app.use('/auth', require('./routes/auth'));
-// app.use('/post', require('./routes/post'));
+app.use('/users', require('./routes/users'));
+app.use('/auth', require('./routes/auth'));
+app.use('/posts', require('./routes/posts'));
 
 //serve static assets
 // if(process.env.NODE_ENV === 'production') {

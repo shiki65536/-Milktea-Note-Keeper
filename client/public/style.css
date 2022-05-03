@@ -98,7 +98,7 @@
     font-size: 1.2em;
     resize: none;
   }
-  form.create-note button {
+  form.create-post button {
     position: absolute;
     right: 18px;
     bottom: -18px;
@@ -112,7 +112,7 @@
     cursor: pointer;
     outline: none;
   }
-  .note{
+  .post{
     background: #FAFAFA;
     border-radius: 7px;
     box-shadow: 0 2px 5px #ccc;
@@ -123,7 +123,7 @@
     background-image: radial-gradient(#BBBBBB 7.2%, transparent 0);
     background-size: 10px 10px;
   }
-  .note h2 {
+  .post h2 {
     font-size: 1.3em;
     margin-bottom: 12px;
     transform: rotate(-2deg);
@@ -132,13 +132,13 @@
     background-color: #EFD8CF;
     color: #FFFFFF;
   }
-  .note p {
+  .post p {
     font-size: 1.1em;
     margin: 10px auto;
     white-space: pre-wrap;
     word-wrap: break-word;
   }
-  .note button {
+  .post button {
     position: relative;
     margin-right: 0;
     float: right;
@@ -150,7 +150,7 @@
     outline: none;
     background: none;
   }
-  .note button:hover {
+  .post button:hover {
     color:#EFD8CF;
   }
 

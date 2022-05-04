@@ -27,9 +27,7 @@ function CreatePost(props) {
     };
 
     function submitPost(event) {
-        // props.addPost(post);
         event.preventDefault();
-        // console.log(post);
 
         fetch('/posts', {
             method: 'POST',

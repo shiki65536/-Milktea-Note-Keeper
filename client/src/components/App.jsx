@@ -8,11 +8,7 @@ import EditPost from './EditPost';
 
 function App() {
     const [posts, setPosts] = useState([]);
-    const [board, setBoard] = useState({
-        // id: "",
-        // title: "",
-        // text: ""
-    })
+    const [board, setBoard] = useState({})
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -48,22 +44,7 @@ function App() {
         });
     }
 
-    //edit
-    // function editPost({ id, title, text }) {
-    //     setPosts((prevPosts) => {
-    //         return [
-    //             ...prevPosts.slice(0, id),
-    //             {
-    //                 title: title,
-    //                 text: text
-    //             },
-    //             ...prevPosts.slice(id + 1)
-    //         ]
-    //     });
-
-    // }
     function editPost(post) {
-
         fetch(`/posts/${post.id}`, {
             method: 'PUT',
             body: JSON.stringify(post),

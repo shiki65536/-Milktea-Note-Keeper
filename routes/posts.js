@@ -122,7 +122,6 @@ router.put('/star/:id', auth, async (req, res) => {
 // @access  Private
 router.put('/:id', async (req, res) => {
     try {
-
         const post = await Post.findById(req.params.id);
 
         //post not found

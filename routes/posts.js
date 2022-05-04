@@ -120,7 +120,7 @@ router.put('/star/:id', auth, async (req, res) => {
 // @route   PUT posts/:id
 // @des     Update a post
 // @access  Private
-router.put('/:id', auth, async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
 
         const post = await Post.findById(req.params.id);
@@ -130,13 +130,14 @@ router.put('/:id', auth, async (req, res) => {
             return res.status(404).json({ msg: 'post not found' })
         }
         //user not fond
-        else if (post.user.toString() !== req.user.id) {
-            return res.status(401).json({ msg: 'user not authorized' })
-        } else {
+        // else if (post.user.toString() !== req.user.id) {
+        //     return res.status(401).json({ msg: 'user not authorized' })
+        // } 
+        else {
 
             post.text = req.body.text;
             post.title = req.body.title;
-            post.star = req.body.star;
+            // post.star = req.body.star;
 
             await post.save();
 

@@ -15,11 +15,17 @@ function Post(props) {
       .then(response => console.log('Success:', response));
 
   }
+  function clickForm() {
+    props.handleOpen();
+    //get a post
+    props.editPostScript(props.index, props.id);    
+ 
+  }
 
   return (
     <div className="post">
-      <h2>{props.title}</h2>
-      <p>{props.text}</p>
+      <h2 onClick={clickForm}>{props.title}</h2>
+      <p  onClick={clickForm}>{props.text}</p>
       <button onClick={clickDelete}><DeleteSweepIcon /></button>
     </div>
   );

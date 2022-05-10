@@ -5,7 +5,8 @@ function EditPost(props) {
     const [post, setPost] = useState({
         id: props.id,
         title: props.title,
-        text: props.text
+        text: props.text,
+        star: props.star
     });
 
     function updatePost(event) {
@@ -28,7 +29,8 @@ function EditPost(props) {
         setPost({
             id: props.id,
             title: props.title,
-            text: props.text
+            text: props.text,
+            star: props.star
         })
     },[])
 

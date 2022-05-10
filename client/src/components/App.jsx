@@ -40,7 +40,8 @@ function App() {
         setBoard({
             id: id,
             title: posts[index].title,
-            text: posts[index].text
+            text: posts[index].text,
+            star: posts[index].star
         });
     }
 
@@ -50,7 +51,7 @@ function App() {
             body: JSON.stringify(post),
             headers: {
                 'content-type': 'application/json'
-              },
+            },
         })
             .then(response => response.json())
             .catch(error => console.error('Error:', error))
@@ -58,7 +59,7 @@ function App() {
     }
 
     return (
-        <div>
+        <>
             <Header />
             <div className="main">
                 <CreatePost addPost={addPost} />
@@ -72,28 +73,52 @@ function App() {
                         id={board.id}
                         title={board.title}
                         text={board.text}
+                        star={board.star}
                         editPost={editPost}
                         handleClose={handleClose}
                     /></div>
                 </Modal>
-
-                {posts.map((post, index) => {
-                    return (
-                        <Post
-                            key={index}
-                            id={post._id}
-                            index={index}
-                            title={post.title}
-                            text={post.text}
-                            deletePost={deletePost}
-                            editPostScript={editPostScript}
-                            handleOpen={handleOpen}
-                        />
-                    );
-                })}
+                <div>
+                    <section className='star-zone'>
+                        {posts.filter(post => post.star).map((post, index) => {
+                            return (
+                                <Post
+                                    key={index}
+                                    id={post._id}
+                                    index={index}
+                                    title={post.title}
+                                    text={post.text}
+                                    star={post.star}
+                                    deletePost={deletePost}
+                                    editPostScript={editPostScript}
+                                    handleOpen={handleOpen}
+                                />
+                            );
+                        })}
+                    </section>
+                    <section>
+                    {posts.filter(post => !post.star).map((post, index) => {
+                            return (
+                                <Post
+                                    key={index}
+                                    id={post._id}
+                                    index={index}
+                                    title={post.title}
+                                    text={post.text}
+                                    star={post.star}
+                                    deletePost={deletePost}
+                                    editPostScript={editPostScript}
+                                    handleOpen={handleOpen}
+                                />
+                            );
+                        })}
+                    </section>
+                </div>
             </div>
+
+
             <Footer />
-        </div>
+        </ >
     );
 
 }

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Fab from '@material-ui/core/Fab';
 import CreateIcon from '@material-ui/icons/Create';
 import Zoom from '@material-ui/core/Zoom';
-import axios from 'axios'
 
 function CreatePost(props) {
     const [isExpended, setIsExpended] = useState(false);
@@ -57,7 +56,7 @@ function CreatePost(props) {
                     onChange={updatePost}
                     type="text"
                     name="title"
-                    placeholder="Post Title"
+                    placeholder="Title"
                     value={post.title}>
                 </input>
             }
@@ -65,7 +64,7 @@ function CreatePost(props) {
                 onChange={updatePost}
                 name="text"
                 rows={isExpended ? 3 : 1}
-                placeholder="Take Post..."
+                placeholder="Write down your note..."
                 value={post.text}
                 onClick={expendPost}>
             </textarea>

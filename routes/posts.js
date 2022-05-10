@@ -92,10 +92,46 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-// @route   PUT posts/star/:id
+// @route   PUT posts/:id
+// @des     Update a post
+// @access  Private
+router.put('/:id', async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+
+        //post not found
+        if (!post) {
+            return res.status(404).json({ msg: 'post not found' })
+        }
+        //user not fond
+        // else if (post.user.toString() !== req.user.id) {
+        //     return res.status(401).json({ msg: 'user not authorized' })
+        // } 
+        else {
+
+            post.text = req.body.text;
+            post.title = req.body.title;
+            post.star = req.body.star;
+
+            await post.save();
+
+            res.json(post)
+        }
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind === 'ObjectId') {
+            return res.status(404).json({ msg: 'post not found' })
+        }
+        res.status(500).send('server error')
+    }
+
+});
+
+
+// @route   PATCH posts/:id
 // @des     Star a post
 // @access  Private
-router.put('/star/:id', auth, async (req, res) => {
+router.patch('/:id',  async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
 
@@ -116,40 +152,4 @@ router.put('/star/:id', auth, async (req, res) => {
     }
 
 });
-
-// @route   PUT posts/:id
-// @des     Update a post
-// @access  Private
-router.put('/:id', async (req, res) => {
-    try {
-        const post = await Post.findById(req.params.id);
-
-        //post not found
-        if (!post) {
-            return res.status(404).json({ msg: 'post not found' })
-        }
-        //user not fond
-        // else if (post.user.toString() !== req.user.id) {
-        //     return res.status(401).json({ msg: 'user not authorized' })
-        // } 
-        else {
-
-            post.text = req.body.text;
-            post.title = req.body.title;
-            // post.star = req.body.star;
-
-            await post.save();
-
-            res.json(post)
-        }
-    } catch (err) {
-        console.error(err.message);
-        if (err.kind === 'ObjectId') {
-            return res.status(404).json({ msg: 'post not found' })
-        }
-        res.status(500).send('server error')
-    }
-
-});
-
 module.exports = router

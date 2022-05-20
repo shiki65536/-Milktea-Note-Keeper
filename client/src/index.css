@@ -56,6 +56,13 @@
       flex-direction: column;
       overflow-y: auto;
   } 
+  body .dark {
+    background: #333;
+    background-size: 10px 10px;
+    background-image:
+    linear-gradient(to right, #EFD8CF 1px, transparent 1px),
+    linear-gradient(to bottom, #EFD8CF 1px, transparent 1px);
+}
   .main {
     height: 100vh;
     flex: 1;
@@ -68,6 +75,11 @@
       padding: 16px 32px;
       box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
       display: flex;
+  }
+  .header {
+    grid-template-columns: auto auto;
+    
+    justify-content: space-between;
   }
   footer {
     width: 100%;

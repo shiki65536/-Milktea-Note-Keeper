@@ -1,3 +1,3 @@
-# 📝 Mike Tea Keeper
+# 📝 MikeTea Note Keeper
 Baic mern note.
-Add, delete your notes.
+Add, delete, edit, pin your notes.

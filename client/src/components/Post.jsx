@@ -3,9 +3,7 @@ import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import StarIcon from '@material-ui/icons/Star';
 
-
 function Post(props) {
-
   function clickDelete(event) {
     event.preventDefault();
 
@@ -36,7 +34,7 @@ function Post(props) {
   }
   
   return (
-    <div className="post">
+    <div className='post'>
       <div onClick={clickForm}>
         <h2>{props.title}</h2>
       </div>

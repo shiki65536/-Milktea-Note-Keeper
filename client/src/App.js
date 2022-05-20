@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import CreatePost from "./CreatePost";
-import Post from "./Post";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import CreatePost from "./components/CreatePost";
+import Post from "./components/Post";
+import EditPost from './components/EditPost';
+
 import Modal from '@mui/material/Modal';
-import EditPost from './EditPost';
+
+import { useTheme } from './hooks/useTheme'
+
 
 function App() {
+    const { mode } = useTheme()
+
     const [posts, setPosts] = useState([]);
     const [board, setBoard] = useState({})
 
@@ -59,7 +65,7 @@ function App() {
     }
 
     return (
-        <>
+        <div className={`App ${mode}`}>
             <Header />
             <div className="main">
                 <CreatePost addPost={addPost} />
@@ -118,7 +124,7 @@ function App() {
 
 
             <Footer />
-        </ >
+        </div >
     );
 
 }
